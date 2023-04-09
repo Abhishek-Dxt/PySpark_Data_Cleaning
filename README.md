@@ -62,6 +62,7 @@ java-11-openjdk-amd64 java-8-openjdk-amd
 import os
 
 os.environ["JAVA_HOME"] = "/usr/lib/jvm/java-11-openjdk-amd64"
+
 os.environ["SPARK_HOME"] = "/content/spark-3.3.2-bin-hadoop3"
 
 #### Installing findspark
@@ -101,9 +102,6 @@ consumerDF = spark.read.csv("Consumer_data.csv",header=True)
 
 consumerDF.show()
 
-# There are null values in the alcohol consumption (cons_alcohol) and tobacco consumption (cons_tobacco) features.
-
-
 ##### +----------+-----------+------+------+-------+
 
 ```
@@ -132,9 +130,8 @@ consumerDF.show()
 +----------+-----------+------+------+-------+
 only showing top 20 rows
 ```
-#### It can be seen that the data has some countries as 'Unknown' and we have missing values in the Age & Salary columns. Let's handle these
 
-#### problems.
+It can be seen that the data has some countries as 'Unknown' and we have missing values in the Age & Salary columns. Let's handle these problems.
 
 ## Replacing rows with 'Unknown' country
 
@@ -181,7 +178,7 @@ root
 |-- Country: string (nullable = true)
 ```
 
-#### First I'll convert Age & Salary to integer & oat type respectively.
+#### First I'll convert Age & Salary to integer & float type respectively.
 
 from pyspark.sql.types import IntegerType,FloatType
 
@@ -215,9 +212,10 @@ mean_salary
 ```
 35094.
 ```
-# Original data -
+Original data (null age and salary values can be seen) -
+
 consumerDF2.show()
-# (null age and salary values can be seen)
+
 
 ```
 +----------+----+-------+------+-------+
@@ -284,7 +282,8 @@ only showing top 20 rows
 
 consumerDF3.write.format("csv").save("consumer_data_cleaned")
 
-# new file has been created
+New file has been created - 
+
 !ls
 
 ```
@@ -293,13 +292,15 @@ Consumer_data.csv spark-3.3.2-bin-hadoop3.tgz
 dataset_nm.csv spark-3.3.2-bin-hadoop3.tgz.
 sample_data
 ```
-# we can see the part file
+We can see the part file -
+
 !ls consumer_data_cleaned/
 
 ```
 part-00000-a7e94f85-cb32-4fc3-a15e-da09a396129b-c000.csv _SUCCESS
 ```
-# new file can be easily exported
+New file can be easily exported -
+
 !cat consumer_data_cleaned/part- 00000 -a7e94f85-cb32- 4 fc3-a15e-da09a396129b-c000.csv
 
 ```
