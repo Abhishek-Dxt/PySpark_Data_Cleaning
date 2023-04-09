@@ -1,10 +1,14 @@
-In this project I'll be doing data cleaning using Spark (PySpark) on Google Colab environment in a Jupyter Notebook. It can be seen that we don't necessarily need a cluster for Spark Programming.
+In this project I'll be doing data cleaning using Spark (PySpark) on 2 platforms - 
+1. Jupyter Notebook on the Google Colab environment 
+2. On a Dataproc cluster on the Google Cloud Platform (GCP) and save the data in a Hive database
 
-Spark is faster than MapReduce because it uses RDDs, which can cache data in memory, are optimized for iterative processing, and use a DAG engine to optimize task execution.
+**Spark** is faster than MapReduce because it uses RDDs, which can cache data in memory, are optimized for iterative processing, and use a DAG engine to optimize task execution.
 
-The fundamental building blocks and the core data structure of Apache Spark are RDDs. RDDs (Resilient Distributed Datasets) are immutable distributed collections of objects that can be processed in parallel across a cluster of machines. They are fault-tolerant and can recover from node failures.
+The fundamental building blocks and the core data structure of Apache Spark are RDDs. **RDDs (Resilient Distributed Datasets)** are immutable distributed collections of objects that can be processed in parallel across a cluster of machines. They are fault-tolerant and can recover from node failures.
 
-# Creating a Spark session & setting up the Spark environment - -
+# PART 1: PySpark on Jupyter Notebook using Google Colab - 
+
+## Creating a Spark session & setting up the Spark environment - -
 
 #### Installing JDK -
 
@@ -345,7 +349,7 @@ New file can be easily exported -
 43,23,37000.0,Male,England
 ```
 
-# On GCP using Spark on Dataproc - 
+# PART 2: On GCP using Spark on Dataproc - 
 
 Now, let's try to do the above cleaning, this time not on local notebook, but on a Dataproc cluster on GCP - 
 
@@ -363,11 +367,12 @@ Then, I'll proceed with performing the same data cleaning steps as I did on the 
 
 <img width="938" alt="3_cleaned" src="https://user-images.githubusercontent.com/71979171/230753796-39acea3a-71a1-4e2c-9243-26d73401cbc6.PNG">
 
-Next, after saving the cleaned data, I will create a database using hive to save the cleaned data so that others may access the it.
+Next, after saving the cleaned data, I will create a database using **hive** to save the cleaned data so that others may access the it.
 
 <img width="946" alt="4_hivedb" src="https://user-images.githubusercontent.com/71979171/230754195-cba95a7a-3b03-478c-9c89-12cb29923a05.PNG">
 
 
+### Using spark-submit, we can also use a python script to perform all the operations without using the shell. This is an easy way to execute spark jobs in the real world
 
-
+spark-submit python_script.py
 
