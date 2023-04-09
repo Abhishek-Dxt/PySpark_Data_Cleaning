@@ -140,6 +140,7 @@ It can be seen that the data has some countries as 'Unknown' and we have missing
 ## Replacing rows with 'Unknown' country
 
 consumerDF1 = consumerDF.filter(consumerDF['Country'] != "Unknown")
+
 consumerDF1.show()
 
 ```
@@ -249,7 +250,9 @@ consumerDF2.show()
 only showing top 20 rows
 ```
 consumerDF3 = consumerDF2.na.fill(mean_age,["Age"])
+
 consumerDF3 = consumerDF3.na.fill(mean_salary,["Salary"])
+
 consumerDF3.show()
 
 ```
@@ -367,7 +370,7 @@ Then, I'll proceed with performing the same data cleaning steps as I did on the 
 
 <img width="938" alt="3_cleaned" src="https://user-images.githubusercontent.com/71979171/230753796-39acea3a-71a1-4e2c-9243-26d73401cbc6.PNG">
 
-Next, after saving the cleaned data, I will create a database using **hive** to save the cleaned data so that others may access the it.
+Next, after saving the cleaned data, I will create a database using **hive** to save the cleaned data so that others may have access to it.
 
 <img width="946" alt="4_hivedb" src="https://user-images.githubusercontent.com/71979171/230754195-cba95a7a-3b03-478c-9c89-12cb29923a05.PNG">
 
