@@ -1,16 +1,8 @@
-#### In this project I'll be doing data cleaning using Spark (PySpark) on Google Colab environment in a Jupyter Notebook. It can be seen that we
+In this project I'll be doing data cleaning using Spark (PySpark) on Google Colab environment in a Jupyter Notebook. It can be seen that we don't necessarily need a cluster for Spark Programming.
 
-#### don't necessarily need a cluster for Spark Programming.
+Spark is faster than MapReduce because it uses RDDs, which can cache data in memory, are optimized for iterative processing, and use a DAG engine to optimize task execution.
 
-#### Spark is faster than MapReduce because it uses RDDs, which can cache data in memory, are optimized for iterative processing, and use a DAG
-
-#### engine to optimize task execution.
-
-#### The fundamental building blocks and the core data structure of Apache Spark are RDDs. RDDs (Resilient Distributed Datasets) are immutable
-
-#### distributed collections of objects that can be processed in parallel across a cluster of machines. They are fault-tolerant and can recover from
-
-#### node failures.
+The fundamental building blocks and the core data structure of Apache Spark are RDDs. RDDs (Resilient Distributed Datasets) are immutable distributed collections of objects that can be processed in parallel across a cluster of machines. They are fault-tolerant and can recover from node failures.
 
 # Creating a Spark session & setting up the Spark environment - -
 
@@ -58,9 +50,6 @@ spark-3.3.2-bin-hadoop3/sbin/workers.sh
 spark-3.3.2-bin-hadoop3/yarn/
 spark-3.3.2-bin-hadoop3/yarn/spark-3.3.2-yarn-shuffle.jar
 ```
-#### Installing nspark
-
-!pip install -q findspark
 
 #### Setting up Environment Variable (JAVA-HOME and SPARK-HOME) Paths -
 
@@ -75,13 +64,11 @@ import os
 os.environ["JAVA_HOME"] = "/usr/lib/jvm/java-11-openjdk-amd64"
 os.environ["SPARK_HOME"] = "/content/spark-3.3.2-bin-hadoop3"
 
-#### " ndspark " is a Python library that provides a simple way to add Apache Spark to a Python environment. It allows users to locate and use a
+#### Installing findspark
 
-#### Spark installation on their computer, and then easily integrate Spark into their Python code. This library is particularly useful for those who want
+!pip install -q findspark
 
-#### to work with Spark in a Jupyter notebook or other Python environment, without having to install and congure Spark separately.
-
-### Installing ndspark
+"findspark " is a Python library that provides a simple way to add Apache Spark to a Python environment. It allows users to locate and use a Spark installation on their computer, and then easily integrate Spark into their Python code. This library is particularly useful for those who want to work with Spark in a Jupyter notebook or other Python environment, without having to install and congure Spark separately.
 
 import findspark
 findspark.init()
