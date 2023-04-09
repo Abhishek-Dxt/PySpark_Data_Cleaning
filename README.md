@@ -344,3 +344,30 @@ New file can be easily exported -
 42,22,9300.0,Female,Germany
 43,23,37000.0,Male,England
 ```
+
+# On GCP using Spark on Dataproc - 
+
+Now, let's try to do the above cleaning, this time not on local notebook, but on a Dataproc cluster on GCP - 
+
+First, I'll create a cluster and import the data from this Git repository using the SSH. I'll keep the uncleaned data in a 'rawdata' folder. The file is now stored on the HDFS.
+
+<img width="941" alt="1_load" src="https://user-images.githubusercontent.com/71979171/230753282-317cf5ce-c4aa-45e9-b84d-94b2861c518b.PNG">
+
+
+Now, I'll do the cleaning "transformation" on the data stored in HDFS using Spark. Let's login to the Pyspark shell & get into the Spark environment.
+
+<img width="944" alt="2_pyspark" src="https://user-images.githubusercontent.com/71979171/230753453-489eaa0f-044c-4256-ad55-8cc0b68e841f.PNG">
+
+
+Then, I'll proceed with performing the same data cleaning steps as I did on the PySpark-GoogleColab Notebook local setup and I should get the similar output of cleaned data - 
+
+<img width="938" alt="3_cleaned" src="https://user-images.githubusercontent.com/71979171/230753796-39acea3a-71a1-4e2c-9243-26d73401cbc6.PNG">
+
+Next, after saving the cleaned data, I will create a database using hive to save the cleaned data so that others may access the it.
+
+<img width="946" alt="4_hivedb" src="https://user-images.githubusercontent.com/71979171/230754195-cba95a7a-3b03-478c-9c89-12cb29923a05.PNG">
+
+
+
+
+
